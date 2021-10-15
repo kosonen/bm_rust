@@ -2,7 +2,6 @@
 #![no_main]
 
 use embedded_hal::{digital::v2::OutputPin};
-//use gd32vf103xx_hal::gpio::{Output, PushPull, gpioa::PA8};
 use longan_nano::hal::{eclic::
     {EclicExt, Level, LevelPriorityBits, Priority, TriggerType}, 
     gpio::{Output, PushPull, gpioa::PA1, gpioa::PA2}, pac, prelude::*,timer::{Event, Timer}};
