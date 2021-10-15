@@ -1,2 +1,4 @@
 Cargo.lock
 challenge3/target/
+*.bin
+*.sh
