@@ -48,6 +48,7 @@ fn main() -> ! {
     unsafe{
         longan_nano::hal::pac::ECLIC::unmask(pac::Interrupt::TIMER1);
         riscv::interrupt::enable();
+        riscv::asm::wfi();
     }
     loop {}
 }
