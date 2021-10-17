@@ -37,20 +37,23 @@ fn main() -> ! {
 
     unsafe
     {
-       // RED = Some(red);
         BLUE = Some(blue);
         GREEN = Some(green);
-        //RED.as_mut().unwrap().set_high().unwrap();
         GREEN.as_mut().unwrap().set_low().unwrap();
         BLUE.as_mut().unwrap().set_high().unwrap();
         TIMER = Some(timer);
     }
     unsafe{
         longan_nano::hal::pac::ECLIC::unmask(pac::Interrupt::TIMER1);
-        riscv::interrupt::enable();
-        riscv::asm::wfi();
+        riscv::interrupt::enable();    
     }
-    loop {}
+    loop {
+        unsafe
+        {
+            riscv::asm::wfi();
+        }
+        
+    }
 }
 
 #[allow(non_snake_case)]
